@@ -28,6 +28,8 @@ jobs:
       url: ${{ steps.deployment.outputs.page_url }}
     runs-on: ubuntu-latest
     steps:
+      - name: CD into react-ts
+        run: cd react-ts
       - name: Checkout
         uses: actions/checkout@v3
       - name: Set up Node
@@ -35,9 +37,6 @@ jobs:
         with:
           node-version: 18
           cache: 'npm'
-          
-      - name: CD into react-ts
-        run: cd react-ts
       - name: Install dependencies
         run: npm install 
       - name: Build
